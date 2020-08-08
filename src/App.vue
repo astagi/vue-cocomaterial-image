@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <CocoMaterialImage imageId="151" :foreground='colorMain' :background='colorSecond' />
+    <button v-on:click="changeColors()">Change colors</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CocoMaterialImage from '@/components/CocoMaterialImage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    CocoMaterialImage
+  },
+  data: function () {
+    return {
+      colorMain: 'black',
+      colorSecond: 'yellow'
+    }
+  },
+  methods: {
+    changeColors: function () {
+      this.colorMain = 'green'
+      this.colorSecond = 'blue'
+    }
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  width: 200px;
+  heigth: 200px;
 }
 </style>
