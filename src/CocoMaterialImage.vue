@@ -53,7 +53,9 @@ export default {
         return createElement(
           'path',
           {
-            attrs: {...path, fill: index == 0 && this.paths.length > 1 ? this.background : this.foreground}
+            attrs: {
+              ...path, fill: index == 0 && this.paths.length > 1 ? this.background : this.foreground
+            }
           })
       }))
   }

@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - 12
+before_script:
+  - yarn add codecov
+script:
+  - yarn test:unit
+after_script:
+  codecov
