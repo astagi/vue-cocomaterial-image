@@ -11,7 +11,7 @@ export default {
   },
   props: {
     imageId: {
-      type: String,
+      type: Number,
       required: true
     },
     foreground: {
@@ -49,11 +49,11 @@ export default {
           viewBox: this.viewBox,
           xmlns: "http://www.w3.org/2000/svg"
         }
-      }, this.paths.map(path => {
+      }, this.paths.map((path, index) => {
         return createElement(
           'path',
           {
-            attrs: {...path, fill: path.fill == '#fff' ? this.background : this.foreground}
+            attrs: {...path, fill: index == 0 && this.paths.length > 1 ? this.background : this.foreground}
           })
       }))
   }

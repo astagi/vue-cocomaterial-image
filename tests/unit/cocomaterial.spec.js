@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
 import CocoMaterialImage from '@/components/CocoMaterialImage.vue'
-import Vue from 'vue'
 import flushPromises from 'flush-promises'
 
 global.fetch = jest.fn(() =>
