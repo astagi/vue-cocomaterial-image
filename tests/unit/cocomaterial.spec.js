@@ -1,6 +1,7 @@
 import { shallowMount } from '@vue/test-utils'
 import CocoMaterialImage from '@/components/CocoMaterialImage.vue'
 import Vue from 'vue'
+import flushPromises from 'flush-promises'
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -29,9 +30,7 @@ describe('CocoMaterialImage.vue', () => {
     const wrapper = shallowMount(CocoMaterialImage, {
       propsData: { imageId, foreground, background }
     })
-    await Vue.nextTick()
-    await Vue.nextTick()
-    await Vue.nextTick()
+    await flushPromises()
     const paths = wrapper.findAll('path')
     expect(paths.length).toBe(2)
     expect(paths.at(0).attributes().fill).toBe('red')
@@ -42,9 +41,7 @@ describe('CocoMaterialImage.vue', () => {
     const wrapper = shallowMount(CocoMaterialImage, {
       propsData: { imageId}
     })
-    await Vue.nextTick()
-    await Vue.nextTick()
-    await Vue.nextTick()
+    await flushPromises()
     const paths = wrapper.findAll('path')
     expect(paths.length).toBe(2)
     expect(paths.at(0).attributes().fill).toBe('white')
