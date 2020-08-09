@@ -24,10 +24,23 @@ describe('CocoMaterialImage.vue', () => {
   });
   it('renders svg', async() => {
     const imageId = '152'
-    const foreground = 'black'
-    const background = 'white'
+    const foreground = 'green'
+    const background = 'red'
     const wrapper = shallowMount(CocoMaterialImage, {
       propsData: { imageId, foreground, background }
+    })
+    await Vue.nextTick()
+    await Vue.nextTick()
+    await Vue.nextTick()
+    const paths = wrapper.findAll('path')
+    expect(paths.length).toBe(2)
+    expect(paths.at(0).attributes().fill).toBe('red')
+    expect(paths.at(1).attributes().fill).toBe('green')
+  });
+  it('renders svg with default colors', async() => {
+    const imageId = '152'
+    const wrapper = shallowMount(CocoMaterialImage, {
+      propsData: { imageId}
     })
     await Vue.nextTick()
     await Vue.nextTick()

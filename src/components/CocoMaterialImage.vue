@@ -10,9 +10,18 @@ export default {
     }
   },
   props: {
-    imageId: String,
-    foreground: String,
-    background: String
+    imageId: {
+      type: String,
+      required: true
+    },
+    foreground: {
+      type: String,
+      default: 'black'
+    },
+    background: {
+      type: String,
+      default: 'white'
+    }
   },
   mounted: function () {
     this.fetchImage()
