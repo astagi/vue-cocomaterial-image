@@ -1,12 +1,14 @@
 <template>
   <div id="app">
-    <CocoMaterialImage imageId="151" :foreground='colorMain' :background='colorSecond' />
+    <div class="vector-container" v-for="vector in vectors" :key="vector.id" >
+      <CocoMaterialImage :imageId="vector.id" :foreground='colorMain' :background='colorSecond' />
+    </div>
     <button v-on:click="changeColors()">Change colors</button>
   </div>
 </template>
 
 <script>
-import CocoMaterialImage from '@/components/CocoMaterialImage.vue'
+import CocoMaterialImage from '@/CocoMaterialImage.vue'
 
 export default {
   name: 'App',
@@ -16,7 +18,8 @@ export default {
   data: function () {
     return {
       colorMain: 'black',
-      colorSecond: 'yellow'
+      colorSecond: 'yellow',
+      vectors: []
     }
   },
   methods: {
@@ -25,12 +28,18 @@ export default {
       this.colorSecond = 'blue'
     }
   },
+  mounted: function () {
+    fetch(`https://cocomaterial.com/api/vectors/`)
+      .then((response) => { return response.json() })
+      .then((data) => {
+        this.vectors = data
+      }).catch( error => { console.log(error); });
+  }
 }
 </script>
 
 <style>
-#app {
+.vector-container {
   width: 200px;
-  heigth: 200px;
 }
 </style>
