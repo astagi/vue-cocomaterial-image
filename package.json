@@ -37,7 +37,7 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
     "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-unit-jest": "~4.4.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.2",
     "@vue/cli-service": "~4.4.0",
     "@vue/test-utils": "^1.0.3",
     "babel-eslint": "^10.1.0",
