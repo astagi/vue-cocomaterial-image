@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import CocoMaterialImage from '@/CocoMaterialImage.vue'
+import CocomaterialImage from '@/CocomaterialImage.vue'
 import flushPromises from 'flush-promises'
 
 global.fetch = jest.fn(() =>
@@ -18,7 +18,7 @@ global.fetch = jest.fn(() =>
 );
 
 
-describe('CocoMaterialImage.vue', () => {
+describe('CocomaterialImage component', () => {
   beforeEach(() => {
     fetch.mockClear();
   });
@@ -26,7 +26,7 @@ describe('CocoMaterialImage.vue', () => {
     const imageId = 152
     const foreground = 'green'
     const background = 'red'
-    const wrapper = shallowMount(CocoMaterialImage, {
+    const wrapper = shallowMount(CocomaterialImage, {
       propsData: { imageId, foreground, background }
     })
     await flushPromises()
@@ -37,7 +37,7 @@ describe('CocoMaterialImage.vue', () => {
   });
   it('renders svg with default colors', async() => {
     const imageId = 152
-    const wrapper = shallowMount(CocoMaterialImage, {
+    const wrapper = shallowMount(CocomaterialImage, {
       propsData: { imageId}
     })
     await flushPromises()

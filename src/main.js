@@ -1,3 +1,3 @@
-import CocoMaterialImage from './CocoMaterialImage.vue'
+import CocomaterialImage from './CocomaterialImage.vue'
 
-export default CocoMaterialImage
+export default CocomaterialImage

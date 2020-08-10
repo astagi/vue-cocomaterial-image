@@ -9,6 +9,27 @@
     "netlify": "yarn build && rm -rf ./public/dist && cp -r ./dist ./public/dist",
     "lint": "vue-cli-service lint"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astagi/vue-cocomaterial-image.git"
+  },
+  "author": "Andrea Stagi <stagi.andrea@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/astagi/vue-cocomaterial-image/issues"
+  },
+  "homepage": "https://github.com/astagi/vue-cocomaterial-image",
+  "keywords": [
+    "Image",
+    "Icons",
+    "Material",
+    "Cocomaterial",
+    "Vuejs"
+  ],
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^2.6.11"

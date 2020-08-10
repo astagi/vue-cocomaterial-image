@@ -2,7 +2,7 @@
 const COCOMATERIAL_API_URL = 'https://cocomaterial.com/api'
 
 export default {
-  name: 'CocoMaterialImage',
+  name: 'CocomaterialImage',
   data: function () {
     return {
       viewBox: '0 0 0 0',

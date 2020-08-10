@@ -29,13 +29,13 @@
     </noscript>
     <div id="app">
       <div class="vector-container" v-for="vector in vectors" :key="vector.id" >
-        <cocomaterialimage v-bind:image-id="vector.id" v-bind:foreground="colorMain" v-bind:background="colorSecond" class="icon" />
+        <cocomaterial-image v-bind:image-id="vector.id" v-bind:foreground="colorMain" v-bind:background="colorSecond" class="icon" />
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="./dist/vue-cocomaterial-image.umd.min.js"></script>
     <script>
-      Vue.component('cocomaterialimage', window.cocomaterialimage)
+      Vue.component('cocomaterial-image', window.cocomaterialimage)
       new Vue({
         el: "#app",
         data: function () {

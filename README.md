@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <i><a href="https://cocomaterial.com">Cocomaterial</a> Image component for Vue.js</i>
+  <i><a href="https://cocomaterial.com">Cocomaterial</a> Image component for Vue.js. <a href="">Try the demo!</a></i>
 </p>
 
 <p align="center">
@@ -15,40 +15,48 @@
 
 ## Installation
 
-```bash
+```sh
 yarn add vue-cocomaterial-image
 ```
 
 ## Usage
 
 ```js
-import CocoMaterialImage from 'vue-cocomaterial-image'
+import CocomaterialImage from 'vue-cocomaterial-image'
+
+Vue.component(CocomaterialImage.name, CocomaterialImage)
 ```
+
+Get the image id from [Cocomaterial website](https://cocomaterial.com) and use it in your component. You can also change `foreground` and `background` colors
 
 ```html
 <template>
   <div id="app">
-    <CocoMaterialImage :imageId="151" foreground="#000" background="#fff" />
+    <cocomaterial-image :imageId="151" foreground="#34495e" background="#41B883" />
   </div>
 </template>
 ```
 
 ## Project setup
-```
+
+```sh
 yarn install
 ```
 
 ### Compiles and minifies for production
-```
+
+```sh
 yarn build
 ```
 
 ### Run your unit tests
-```
+
+```sh
 yarn test:unit
 ```
 
 ### Lints and fixes files
-```
+
+```sh
 yarn lint
 ```

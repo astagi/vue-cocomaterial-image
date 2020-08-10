@@ -4,6 +4,6 @@ node_js:
 before_script:
   - yarn add codecov
 script:
-  - yarn test:unit
+  - yarn lint && yarn test:unit
 after_script:
   codecov
