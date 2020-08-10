@@ -4,8 +4,9 @@
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "build": "vue-cli-service build --target lib --name cocomaterialimage --filename vue-cocomaterial-image src/main.js",
+    "build": "vue-cli-service build --target lib --name cocomaterialimage --filename vue-cocomaterial-image src/main.js && rm -rf ./dist/demo.html",
     "test:unit": "vue-cli-service test:unit",
+    "netlify": "yarn build && rm -rf ./public/dist && cp -r ./dist ./public/dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
