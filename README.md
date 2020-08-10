@@ -12,16 +12,16 @@ yarn add vue-cocomaterial-image
 
 ## Usage
 
-```vue
+```js
 import CocoMaterialImage from 'vue-cocomaterial-image'
+```
 
-
+```html
 <template>
   <div id="app">
     <CocoMaterialImage :imageId="151" foreground="#000" background="#fff" />
   </div>
 </template>
-
 ```
 
 ## Project setup
@@ -43,6 +43,3 @@ yarn test:unit
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
