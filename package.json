@@ -1,10 +1,10 @@
 {
-  "name": "vue-cocomaterial",
-  "main": "./dist/vue-cocomaterial.common.js",
+  "name": "vue-cocomaterial-image",
+  "main": "./dist/vue-cocomaterial-image.common.js",
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "build": "vue-cli-service build --target lib --name vue-cocomateria src/main.js",
+    "build": "vue-cli-service build --target lib --name cocomaterialimage --filename vue-cocomaterial-image src/main.js",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },

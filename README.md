@@ -1,5 +1,17 @@
 # vue-cocomaterial
 
+[Cocomaterial](https://cocomaterial.com) Image component for Vue.js
+
+## Installation
+
+```bash
+yarn add vue-cocomaterial-image
+```
+
+## Usage
+
+TODO
+
 ## Project setup
 ```
 yarn install
