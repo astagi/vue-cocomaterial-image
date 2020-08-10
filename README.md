@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <i><a href="https://cocomaterial.com">Cocomaterial</a> Image component for Vue.js. <a href="https://thirsty-babbage-36e4bb.netlify.app/">Try the demo!</a></i>
+  <i><a href="https://cocomaterial.com">Cocomaterial</a> Image component for Vue.js. <a href="https://vue-cocomaterial-image.netlify.app/">Try the demo!</a></i>
 </p>
 
 <p align="center">
