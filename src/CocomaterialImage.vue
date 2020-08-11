@@ -1,6 +1,7 @@
 <script>
 const COCOMATERIAL_API_URL = 'https://cocomaterial.com/api'
 
+
 export default {
   name: 'CocomaterialImage',
   data: function () {
@@ -59,13 +60,14 @@ export default {
       return createElement(
         'svg',
         {
+          on: this.$listeners,
           attrs: {
             viewBox: this.viewBox,
             xmlns: "http://www.w3.org/2000/svg"
           }
         }, pathElements)
     } else {
-      return createElement('svg')
+      return null
     }
   }
 }

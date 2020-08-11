@@ -46,7 +46,7 @@ describe('CocomaterialImage component', () => {
     expect(paths.at(0).attributes().fill).toBe('white')
     expect(paths.at(1).attributes().fill).toBe('black')
   });
-  it('renders empty svg on failure', async() => {
+  it('renders null on failure', async() => {
     fetch.mockImplementationOnce(() => Promise.reject("API is down"));
     const imageId = 15209
     const wrapper = shallowMount(CocomaterialImage, {
@@ -54,7 +54,7 @@ describe('CocomaterialImage component', () => {
     })
     await flushPromises()
     const svg = wrapper.findAll('svg')
-    expect(svg.length).toBe(1)
+    expect(svg.length).toBe(0)
     const paths = wrapper.findAll('path')
     expect(paths.length).toBe(0)
   })

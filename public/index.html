@@ -14,6 +14,7 @@
         justify-content: space-evenly;
       }
       .vector-container {
+        cursor: pointer;
         width: 200px;
         height: 200px;
       }
@@ -29,7 +30,7 @@
     </noscript>
     <div id="app">
       <div class="vector-container" v-for="vector in vectors" :key="vector.id" >
-        <cocomaterial-image v-bind:image-id="vector.id" v-bind:foreground="colorMain" v-bind:background="colorSecond" class="icon" />
+        <cocomaterial-image v-bind:image-id="vector.id" v-bind:foreground="colorMain" v-bind:background="colorSecond" class="icon" v-on:click="showIconInfo(vector)" />
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
@@ -43,6 +44,11 @@
             colorMain: '#34495e',
             colorSecond: '#41B883',
             vectors: []
+          }
+        },
+        methods: {
+          showIconInfo: function(vector) {
+            alert('Icon name: ' + vector.name)
           }
         },
         mounted: function () {
