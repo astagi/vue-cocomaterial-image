@@ -1,5 +1,6 @@
 <script>
 const COCOMATERIAL_API_URL = 'https://cocomaterial.com/api'
+const cache = new Map();
 
 
 export default {
@@ -27,17 +28,18 @@ export default {
     }
   },
   mounted: function () {
-    this.fetchImage()
-  },
-  methods: {
-    fetchImage: function () {
-      fetch(`${COCOMATERIAL_API_URL}/vectors/${this.imageId}/`)
-        .then((response) => { return response.json() })
-        .then((data) => {
-          const doc = new DOMParser().parseFromString(data.svg_content, 'image/svg+xml');
-          this.viewBox = doc.firstElementChild.getAttribute('viewBox')
-          this.paths = doc.getElementsByTagName('path')
-        }).catch( error => { console.log(error); });
+    if (!cache.has(this.imageId)) {
+      cache.set(
+        this.imageId,
+        fetch(`${COCOMATERIAL_API_URL}/vectors/${this.imageId}/`).then(r => r.json())
+      )
+    }
+    if (cache.has(this.imageId)) {
+      cache.get(this.imageId).then(data => {
+        const doc = new DOMParser().parseFromString(data.svg_content, 'image/svg+xml');
+        this.viewBox = doc.firstElementChild.getAttribute('viewBox')
+        this.paths = doc.getElementsByTagName('path')
+      }).catch(e => console.log(e))
     }
   },
   render: function (createElement) {
