@@ -1,7 +1,7 @@
 {
   "name": "vue-cocomaterial-image",
   "main": "./dist/vue-cocomaterial-image.common.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": false,
   "scripts": {
     "build": "vue-cli-service build --target lib --name cocomaterialimage --filename vue-cocomaterial-image src/main.js && rm -rf ./dist/demo.html",
