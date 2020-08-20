@@ -46,17 +46,14 @@ export default {
       const pathElements = []
       for (let i = 0 ; i < this.paths.length ; i++) {
         pathElements[i] = createElement(
-            'path',
-            {
-              attrs: Object.assign({},
-                {d: this.paths[i].properties.d},
-                this.paths[i].properties.color && {color: this.paths[i].properties.color},
-                this.paths[i].properties.overflow && {overflow: this.paths[i].properties.overflow},
-                this.paths[i].properties.transform && {transform: this.paths[i].properties.transform},
-                this.paths[i].properties['paint-order'] && {'paint-order': this.paths[i].properties['paint-order']},
-                {fill: i == 0 && this.paths.length > 1 ? this.background : this.foreground}
-              )
-            })
+          'path',
+          {
+            attrs: Object.assign({},
+              {...this.paths[i].properties},
+              {fill: i == 0 && this.paths.length > 1 ? this.background : this.foreground}
+            )
+          }
+        )
       }
       return createElement(
         'svg',
