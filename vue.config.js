@@ -1,5 +1,6 @@
 module.exports = {
   configureWebpack: (config) => {
+    config.output.libraryExport = 'default'
     config.module.rules = [
       {
         test: /\.worker\.js$/i,
