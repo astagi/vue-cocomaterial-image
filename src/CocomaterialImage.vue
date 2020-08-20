@@ -1,6 +1,7 @@
 <script>
-const COCOMATERIAL_API_URL = 'https://cocomaterial.com/api'
-const cache = new Map();
+
+import Worker from './utils.worker'
+const worker = new Worker();
 
 
 export default {
@@ -12,6 +13,19 @@ export default {
   },
   created () {
     this.viewBox = '0 0 0 0'
+  },
+  methods: {
+    $_worker_message_handler: function ({data}) {
+      if (data.imageId != this.imageId)
+        return
+      this.viewBox = data.viewBox;
+      this.paths = data.paths;
+      worker.removeEventListener('message', this.$_worker_message_handler)
+    }
+  },
+  mounted() {
+    worker.addEventListener('message', this.$_worker_message_handler);
+    worker.postMessage(this.imageId);
   },
   props: {
     imageId: {
@@ -27,21 +41,6 @@ export default {
       default: 'white'
     }
   },
-  mounted: function () {
-    if (!cache.has(this.imageId)) {
-      cache.set(
-        this.imageId,
-        fetch(`${COCOMATERIAL_API_URL}/vectors/${this.imageId}/`).then(r => r.json())
-      )
-    }
-    if (cache.has(this.imageId)) {
-      cache.get(this.imageId).then(data => {
-        const doc = new DOMParser().parseFromString(data.svg_content, 'image/svg+xml');
-        this.viewBox = doc.firstElementChild.getAttribute('viewBox')
-        this.paths = doc.getElementsByTagName('path')
-      }).catch(e => console.log(e))
-    }
-  },
   render: function (createElement) {
     if (this.paths.length > 0) {
       const pathElements = []
@@ -50,11 +49,11 @@ export default {
             'path',
             {
               attrs: Object.assign({},
-                {d: this.paths[i].attributes.d.value},
-                this.paths[i].attributes.color && {color: this.paths[i].attributes.color.value},
-                this.paths[i].attributes.overflow && {overflow: this.paths[i].attributes.overflow.value},
-                this.paths[i].attributes.transform && {transform: this.paths[i].attributes.transform.value},
-                this.paths[i].attributes['paint-order'] && {'paint-order': this.paths[i].attributes['paint-order'].value},
+                {d: this.paths[i].properties.d},
+                this.paths[i].properties.color && {color: this.paths[i].properties.color},
+                this.paths[i].properties.overflow && {overflow: this.paths[i].properties.overflow},
+                this.paths[i].properties.transform && {transform: this.paths[i].properties.transform},
+                this.paths[i].properties['paint-order'] && {'paint-order': this.paths[i].properties['paint-order']},
                 {fill: i == 0 && this.paths.length > 1 ? this.background : this.foreground}
               )
             })
