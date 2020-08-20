@@ -5,7 +5,10 @@ module.exports = {
         test: /\.worker\.js$/i,
         use: [
           {
-            loader: 'worker-loader'
+            loader: 'worker-loader',
+            options: {
+              inline: 'no-fallback',
+            },
           }
         ]
       },
