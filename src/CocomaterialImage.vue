@@ -45,14 +45,9 @@ export default {
     if (this.paths.length > 0) {
       const pathElements = []
       for (let i = 0 ; i < this.paths.length ; i++) {
+        this.paths[i].properties.fill = i == 0 && this.paths.length > 1 ? this.background : this.foreground
         pathElements[i] = createElement(
-          'path',
-          {
-            attrs: Object.assign({},
-              {...this.paths[i].properties},
-              {fill: i == 0 && this.paths.length > 1 ? this.background : this.foreground}
-            )
-          }
+          'path', {attrs: this.paths[i].properties}
         )
       }
       return createElement(

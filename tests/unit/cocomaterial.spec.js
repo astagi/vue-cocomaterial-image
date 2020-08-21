@@ -1,6 +1,11 @@
+
+
 import { shallowMount } from '@vue/test-utils'
-import CocomaterialImage from '@/CocomaterialImage.vue'
 import flushPromises from 'flush-promises'
+
+
+import CocomaterialImage from '@/CocomaterialImage.vue'
+
 
 global.fetch = jest.fn(() =>
   Promise.resolve({
@@ -17,6 +22,7 @@ global.fetch = jest.fn(() =>
   })
 );
 
+jest.mock('@/utils.worker')
 
 describe('CocomaterialImage component', () => {
   it('renders svg', async() => {

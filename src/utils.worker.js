@@ -1,9 +1,9 @@
-import CocomaterialClient from './CocomaterialClient'
-
+import workerHandler from './handlers'
 
 self.addEventListener("message", ({data}) => {
-  const imageId = data
-  new CocomaterialClient().downloadAndProcessSVG(imageId).then(data => {
-    self.postMessage(data);
-  })
+  workerHandler(data)
+    .then(data => {
+      self.postMessage(data);
+    })
+    .catch(e => {console.log(e)})
 });
