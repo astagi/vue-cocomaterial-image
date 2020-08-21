@@ -1,7 +1,6 @@
 import CocomaterialClient from './CocomaterialClient'
 
 
-export default ({data}) => {
-  const imageId = data
+export default (imageId) => {
   return new CocomaterialClient().downloadAndProcessSVG(imageId)
 }

@@ -23,9 +23,9 @@ export default class Worker {
     })
   }
 
-  postMessage (data) {
+  postMessage (dataToWorker) {
     this._eventListeners[DEFAULT_NAME].map((eventListener) => {
-      workerHandler({data})
+      workerHandler(dataToWorker)
         .then(data => {
           eventListener({data})
         })
