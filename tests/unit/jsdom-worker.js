@@ -2,9 +2,6 @@ import mitt from 'mitt';
 import uuid from 'uuid-v4';
 import fetch, { Response } from 'node-fetch';
 
-console.log('ECCO')
-
-console.log(global.fetch)
 
 if (!global.URL) global.URL = {};
 if (!global.URL.$$objects) {
@@ -17,7 +14,6 @@ if (!global.URL.$$objects) {
 }
 
 if (!global.fetch || !global.fetch.jsdomWorker) {
-  console.log('NOOOO')
 	let oldFetch = global.fetch || fetch;
 	global.fetch = function(url, opts) {
 		if (url.match(/^blob:/)) {
@@ -86,7 +82,6 @@ global.Worker = function Worker(url) {
 	this.terminate = () => {
 		throw Error('Not Supported');
   };
-  console.log(url)
   global.fetch(url)
 		.then(r => r.text())
 		.then(code => {

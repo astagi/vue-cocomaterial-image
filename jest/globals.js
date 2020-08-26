@@ -1,11 +1,7 @@
-console.log('GLOBALLLLLLLL')
-
 import fs from 'fs'
 import path from 'path'
 
-console.log('GLOBALFETCCH')
 global.fetch = jest.fn((url) => {
-  console.log("AAAAA")
   if (url.startsWith('@/')) {
     return Promise.resolve({
       text: () => Promise.resolve(
