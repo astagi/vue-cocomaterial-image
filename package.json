@@ -48,8 +48,11 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
     "flush-promises": "^1.0.2",
+    "jsdom-worker": "^0.2.1",
+    "node-fetch": "^2.6.0",
     "vue": "^2.6.11",
     "vue-template-compiler": "^2.6.11",
-    "worker-loader": "^3.0.1"
+    "worker-loader": "^3.0.1",
+    "worker-plugin": "^5.0.0"
   }
 }

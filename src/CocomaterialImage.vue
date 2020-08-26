@@ -1,7 +1,7 @@
 <script>
 
-import Worker from './utils.worker'
-const worker = new Worker();
+//import Worker from './utils.worker'
+const worker = new Worker('@/utilsworker.js', { name: 'utils.worker', type: 'module' });
 
 
 export default {

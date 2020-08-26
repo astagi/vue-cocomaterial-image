@@ -5,4 +5,7 @@ module.exports = {
     "src/*.vue", "src/*.js",
     "!src/main.js", "!src/*.worker.js", "!**/node_modules/**"
   ],
+  setupFiles: [
+    "./jest/globals.js"
+  ]
 }
